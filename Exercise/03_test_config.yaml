@@ -1,0 +1,58 @@
+# 03_test_config.yaml (For step 20.3)
+
+#### PARROTS main params ####
+input_options: 
+  input_pdb: ../Example/inputs/PD1_PDBs/4zqk_PD1_rx.pdb       # already pre-set for this exercise
+  base_dir: ./ITER_2/                                         # already pre-set for this exercise
+  template_fasta: ../Example/inputs/4ZQK_pd1_truncated.fasta  # already pre-set for this exercise
+  binder_chain: "A" 
+
+pipeline_options:
+  run_rfd: false
+  run_design: true
+  run_predict: true
+
+environment: environment.yaml
+
+#### PARROTS Design params ####
+design_options: 
+  input_dir: ./ITER_1/Prediction_output/....                  # pre-set for this exercise
+  output_dir: ./ITER_2/Design_output                          # already pre-set for this exercise
+  design_mode:                                                # Str; Default "mpnn" (options: mpnn, rosetta)
+  use_backrub:                                                # Bool; Default false
+  n_trials:                                                   # Int; Default 4
+  n_pass:                                                     # Int; Default 3
+  input_is_relaxed: false                                     ## SET TO FALSE BC STARTING FROM AF3 MODELS
+  bias:                                                       # Str; bias.jsonl dictionary file. Default ""
+
+#### PARROTS Design optional params ####
+design_focus_options:
+  focus_specific_residues:                                    # Str (eg. "1,2,3,4"); Shouldn't really be used for ITER_1 design
+  exclude_specific_residues:                                  # Bool; Works with focus_specific_residues. Default False. If true, then do not design focus specific residues.
+  focus_core:                                                 # Bool; If true, then parrots will limit design to core residues for both design steps (except if sequence is all Gly ie. ITER_1 step 1 design)
+  focus_interface:                                            # Bool; If true, then parrots will limit design to the interface residues + shell 2 for both design steps (except if sequence is all Gly ie. ITER_1 step 1 design)
+
+#### PARROTS Design default filters ####
+# These are defaults, change if you wish:
+design_filters: 
+  step1: 
+    filter_metric1: 'separated_interface/dSASAx100, -2.0, <'
+    filter_metric2: 'hbond_energy/separated_interface, 0.05, >'
+  step2:
+    filter_metric1: 'separated_interface/dSASAx100, -2.9, <'
+    filter_metric2: 'hbond_energy/separated_interface, 0.1, >' 
+
+### PARROTS Structural Prediction params ####
+predict_options:
+  input_dir: ./ITER_2/Design_output/filtered_step_2          # already pre-set for this exercise 
+  output_dir: ./ITER_2/Prediction_output                     # already pre-set for this exercise 
+  predict_mode:                                              # Str; Default AF3 
+  bootstrap_msa:                                             # Bool; Default True (PARROTS will use the target MSA generated for the first structural prediction for all subsequent predictions; Makes it run faster)
+  run_ipsae:                                                 # Bool; Default True
+
+
+
+
+
+
+  

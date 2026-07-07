@@ -1,0 +1,16 @@
+# Machine-specific paths for scratch2
+
+environment:
+  parrots_dir: /ifs/scratch2/home/bs3281/PARROTS
+  python_exec: /ifs/scratch2/public_softwares/conda_env/pyrosetta/bin/python
+
+  rfd_path: /ifs/scratch2/public_softwares/RFdiffusion
+  rfd_docker_image: rosettacommons/rfdiffusion
+  gpu_device: 1
+
+  mpnn_path: /ifs/scratch2/public_softwares/ProteinMPNN
+
+  af3_dir: /ifs/scratch2/public_softwares/alphafold3
+  af3_db: /ifs/scratch2/public_softwares/alphafold3_database
+
+  ipsae_dir: /ifs/scratch2/public_softwares/IPSAE

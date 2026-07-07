@@ -1,0 +1,28 @@
+################## WORKSHOP STEP 3: ADDITIONAL DESIGN PARAMETERS #################
+
+#### PARROTS Design optional params ####
+design_focus_options:
+  focus_specific_residues:        # Str (eg. "1,2,3,4"); Shouldn't really be used for ITER_1 design
+  exclude_specific_residues:      # Bool; Works with focus_specific_residues. Default False. If true, then do not design focus specific residues.
+  focus_core:                     # Bool; If true, then parrots will limit design to core residues for both design steps (except if sequence is all Gly ie. ITER_1 step 1 design)
+  focus_interface:                # Bool; If true, then parrots will limit design to the interface residues + shell 2 for both design steps (except if sequence is all Gly ie. ITER_1 step 1 design)
+
+#### PARROTS Design iteration-specific params ####
+iteration_overrides:
+  2:
+    design_focus_options:
+      focus_core: true
+  3: 
+    design_options:
+      bias: nonpolar_bias.jsonl
+    design_focus_options:
+      focus_interface: true
+      
+#### PARROTS Design default filters ####
+design_filters: 
+  step1: 
+    filter_metric1: 'separated_interface/dSASAx100, -2.0, <'
+    filter_metric2: 'hbond_energy/separated_interface, 0.05, >'
+  step2:
+    filter_metric1: 'separated_interface/dSASAx100, -2.9, <'
+    filter_metric2: 'hbond_energy/separated_interface, 0.1, >' 
