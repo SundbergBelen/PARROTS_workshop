@@ -6,7 +6,7 @@ input_options:
   binder_chain: "A" 
 
 pipeline_options:
-  n_iterations:                   # Int; Default 1
+  n_iterations:    1               # Int; Default 1
   run_rfd: true
   run_design: false
   run_predict: false
