@@ -2,10 +2,11 @@ PD1_PDBs
 
 Example/ITER_*
 
-!Example/inputs/PD1_PDBs/*
-
 Test*
 
-
-
-
+*.log
+*.out
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
