@@ -1,6 +1,6 @@
 #### PARROTS main params ####
 input_options: 
-  input_pdb: ./inputs/PD1_PDBs/4zqk_PD1_rx.pdb
+  input_pdb: ./inputs/PDBs/4zqk_PD1_rx.pdb
   base_dir: .
   template_fasta: ./inputs/4ZQK_pd1_truncated.fasta
   binder_chain: "A" 

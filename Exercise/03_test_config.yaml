@@ -2,7 +2,7 @@
 
 #### PARROTS main params ####
 input_options: 
-  input_pdb: ../Example/inputs/PD1_PDBs/4zqk_PD1_rx.pdb       # already pre-set for this exercise
+  input_pdb: ../Example/inputs/PDBs/4zqk_PD1_rx.pdb       # already pre-set for this exercise
   base_dir: .                                                 # already pre-set for this exercise
   template_fasta: ../Example/inputs/4ZQK_pd1_truncated.fasta  # already pre-set for this exercise
   binder_chain: "A" 
