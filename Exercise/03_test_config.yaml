@@ -3,11 +3,13 @@
 #### PARROTS main params ####
 input_options: 
   input_pdb: ../Example/inputs/PD1_PDBs/4zqk_PD1_rx.pdb       # already pre-set for this exercise
-  base_dir: ./ITER_2/                                         # already pre-set for this exercise
+  base_dir: .                                                 # already pre-set for this exercise
   template_fasta: ../Example/inputs/4ZQK_pd1_truncated.fasta  # already pre-set for this exercise
   binder_chain: "A" 
 
 pipeline_options:
+  start_iteration: 2                                          # Int; Default 1; SET HERE TO 2 SO WE CAN USE ITER_1 OUTPUT
+  n_iterations:                                               # Int; Default 1
   run_rfd: false
   run_design: true
   run_predict: true
@@ -16,8 +18,8 @@ environment: environment.yaml
 
 #### PARROTS Design params ####
 design_options: 
-  input_dir: ./ITER_1/Prediction_output/....                  # pre-set for this exercise
-  output_dir: ./ITER_2/Design_output                          # already pre-set for this exercise
+  input_dir: ./ITER_1/Prediction_output/Filtered_AF3_models   # pre-set for this exercise
+  output_dir:                                                 # Str; Will default to correct ITER 
   design_mode:                                                # Str; Default "mpnn" (options: mpnn, rosetta)
   use_backrub:                                                # Bool; Default false
   n_trials:                                                   # Int; Default 4
